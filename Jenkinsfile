@@ -29,5 +29,11 @@ pipeline {
          sh "tar -zcf build.tar.gz build/"
       }
     }  
+    stage('Docker Build') {
+      steps {
+        //sh 'docker --version'
+        docker build . -t reactapp:1.0.1
+      }
+    }
   }
 }
