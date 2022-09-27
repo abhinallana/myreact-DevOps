@@ -31,8 +31,8 @@ pipeline {
     }  
     stage('Docker Build') {
       steps {
-        //sh 'docker --version'
-        docker build -t abhinallana/myreact_app:1.0.0 .
+        sh 'docker build -t abhinallana/react_app:1.0.0 .'
+        sh 'docker --version'
       }
     }
   }
