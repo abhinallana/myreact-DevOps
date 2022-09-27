@@ -29,6 +29,11 @@ pipeline {
          sh "tar -zcf build.tar.gz build/"
       }
     }  
+    stage('Initialize'){
+        def dockerHome = tool 'Docker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
+
     stage('Docker Build') {
       steps {
         sh 'docker build -t abhinallana/react_app:1.0.0 .'
