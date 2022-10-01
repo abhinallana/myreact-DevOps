@@ -29,15 +29,6 @@ pipeline {
          sh "tar -zcf build.tar.gz build/"
       }
     }  
-    stage('Initialize'){
-      steps{
-        def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-        sh 'sudo usermod -a -G docker jenkins'
-      }
-    }
-
-
     stage('Docker Build') {
       steps {
         sh 'docker build -t abhinallana/react_app:1.0.0 .'
